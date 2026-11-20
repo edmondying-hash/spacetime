@@ -1,0 +1,113 @@
+{
+ "total": 70.0,
+ "fps": 30,
+ "scenes": [
+  {
+   "name": "neighbours",
+   "start": 0.0,
+   "dur": 10.0,
+   "heading": "1  /  6   \u00b7   Neighbours",
+   "caption": "One BCC node and its 8 body-diagonal neighbours"
+  },
+  {
+   "name": "octahedron",
+   "start": 10.0,
+   "dur": 12.0,
+   "heading": "2  /  6   \u00b7   Octahedron",
+   "caption": "The 8 nearest-neighbour bisectors cut a regular octahedron"
+  },
+  {
+   "name": "truncation",
+   "start": 22.0,
+   "dur": 12.0,
+   "heading": "3  /  6   \u00b7   Truncation",
+   "caption": "Second-neighbour planes cut the corners \u2014 8 hexagons + 6 squares"
+  },
+  {
+   "name": "volume",
+   "start": 34.0,
+   "dur": 10.0,
+   "heading": "4  /  6   \u00b7   Volume",
+   "caption": "Volume is half the conventional cube  \u00b7  the V_P label is a unit choice"
+  },
+  {
+   "name": "tessellation",
+   "start": 44.0,
+   "dur": 20.0,
+   "heading": "5  /  6   \u00b7   Tessellation",
+   "caption": "Neighbouring cells tile space without gaps"
+  },
+  {
+   "name": "end",
+   "start": 64.0,
+   "dur": 6.0,
+   "heading": "6  /  6   \u00b7   End card",
+   "caption": null
+  }
+ ],
+ "hop": "lP",
+ "cell_volume_VP": 0.7698003589195014,
+ "cell_volume_label": "0.770",
+ "cell_volume_4dp": "0.7698",
+ "coord_unit_lP": 0.5773502691896258,
+ "cues": {
+  "neighbour_ticks": [
+   0.4,
+   1.05,
+   1.7000000000000002,
+   2.35,
+   3.0,
+   3.65,
+   4.300000000000001,
+   4.95
+  ],
+  "plane_times": [
+   10.35,
+   11.15,
+   11.95,
+   12.75,
+   13.55,
+   14.35,
+   15.15,
+   15.95
+  ],
+  "octahedron_lock": 16.55,
+  "second_neighbour_ticks": [
+   22.2,
+   22.419999999999998,
+   22.64,
+   22.86,
+   23.08,
+   23.3
+  ],
+  "cut_times": [
+   23.2,
+   23.75,
+   24.3,
+   24.849999999999998,
+   25.4,
+   25.95
+  ],
+  "faces_label": 28.4,
+  "volume_box": 37.4,
+  "cell_pops": [
+   44.05296875,
+   44.40609375,
+   44.75921875,
+   45.11234375,
+   45.46546875,
+   45.81859375,
+   46.17171875,
+   46.52484375,
+   46.87796875,
+   47.23109375,
+   47.58421875,
+   47.937343750000004,
+   48.29046875,
+   48.64359375,
+   48.99671875,
+   49.34984375
+  ],
+  "orbit_start": 50.0
+ }
+}

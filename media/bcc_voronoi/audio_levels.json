@@ -1,0 +1,9 @@
+{
+ "integrated_lufs": -16.0,
+ "true_peak_dbtp": -3.0,
+ "sample_peak_dbfs": -2.960401,
+ "clipping": false,
+ "duration_s": 70.0,
+ "size_bytes": 7059138,
+ "sha256": "0fbc9efc2cd81e2e4e8e714dbe453a495c116865ac1bf12ec9ee514996c6efc1"
+}
