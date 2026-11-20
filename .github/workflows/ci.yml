@@ -1,0 +1,19 @@
+name: Preregistered 3D BCC Benchmarks
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install numpy matplotlib
+      - name: Run all 26 scripts and 11 preregistered assertions
+        run: python3 run_all_benchmarks.py
