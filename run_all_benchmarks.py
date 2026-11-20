@@ -84,6 +84,7 @@ def run_preregistered_assertions() -> List[Tuple[str, bool, str]]:
     """Verify quantitative invariants locked in PREREGISTRATION.md."""
     from bcc_unified_engine import BCCUnifiedEngine
     from bcc_confinement_wilson import BCCPlaquetteMonteCarlo, measure_genuine_glueball_gap
+    from bcc_chiral_dirac import evaluate_chiral_condensate_and_bare_ticks
     from lazy_pascal_handshake import LazyPascalServer
     from bcc_sr_emergence import BCCSREmergenceSim
     from bcc_gr_emergence import BCCGREmergenceSim
@@ -152,6 +153,9 @@ def run_preregistered_assertions() -> List[Tuple[str, bool, str]]:
 
     tb = measure_genuine_glueball_gap(lattice_size=8, beta=2.15, seed=2026)
     checks.append(("11. [Target B] Zero-Knob 0++ Glueball Mass Gap", tb["m_0pp_lat"] > 1.5 and tb["m_over_sqrt_sigma"] > 2.5, f"m/sqrt(s)={tb['m_over_sqrt_sigma']}, M={tb['m_0pp_emergent_mev']} MeV"))
+
+    tc = evaluate_chiral_condensate_and_bare_ticks(lattice_size=4, beta=2.05, seed=2026)
+    checks.append(("12. [Target C] Zero-Knob Chiral Gap -> b_l", tc["near_zero_modes_conf"] > 0 and tc["rel_err_pct"] < 1.0, f"modes={tc['near_zero_modes_conf']}, b_l={tc['b_l_derived']} ({tc['rel_err_pct']}% err)"))
 
     return checks
 
