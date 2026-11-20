@@ -1,0 +1,10 @@
+# This file is used internally by FFMPEG.
+file 'file:/mnt/c/Users/edmon/downloads/spacetime/media/media/videos/scene1_lazy_cones/1080p60/partial_movie_files/LazyTwoConeHandshake/3607747231_2094306324_223132457.mp4'
+file 'file:/mnt/c/Users/edmon/downloads/spacetime/media/media/videos/scene1_lazy_cones/1080p60/partial_movie_files/LazyTwoConeHandshake/4121515053_1684317912_1025256637.mp4'
+file 'file:/mnt/c/Users/edmon/downloads/spacetime/media/media/videos/scene1_lazy_cones/1080p60/partial_movie_files/LazyTwoConeHandshake/4121515053_148089435_2308105623.mp4'
+file 'file:/mnt/c/Users/edmon/downloads/spacetime/media/media/videos/scene1_lazy_cones/1080p60/partial_movie_files/LazyTwoConeHandshake/4121515053_1960794457_2483047717.mp4'
+file 'file:/mnt/c/Users/edmon/downloads/spacetime/media/media/videos/scene1_lazy_cones/1080p60/partial_movie_files/LazyTwoConeHandshake/4121515053_2850455785_3409404195.mp4'
+file 'file:/mnt/c/Users/edmon/downloads/spacetime/media/media/videos/scene1_lazy_cones/1080p60/partial_movie_files/LazyTwoConeHandshake/4121515053_1944815083_2680998278.mp4'
+file 'file:/mnt/c/Users/edmon/downloads/spacetime/media/media/videos/scene1_lazy_cones/1080p60/partial_movie_files/LazyTwoConeHandshake/4121515053_1974738529_448100605.mp4'
+file 'file:/mnt/c/Users/edmon/downloads/spacetime/media/media/videos/scene1_lazy_cones/1080p60/partial_movie_files/LazyTwoConeHandshake/4121515053_1602975619_165586843.mp4'
+file 'file:/mnt/c/Users/edmon/downloads/spacetime/media/media/videos/scene1_lazy_cones/1080p60/partial_movie_files/LazyTwoConeHandshake/4121515053_3821601163_3716812183.mp4'

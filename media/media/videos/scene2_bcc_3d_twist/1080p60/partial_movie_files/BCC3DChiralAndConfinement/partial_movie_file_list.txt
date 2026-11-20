@@ -1,0 +1,8 @@
+# This file is used internally by FFMPEG.
+file 'file:/mnt/c/Users/edmon/downloads/spacetime/media/media/videos/scene2_bcc_3d_twist/1080p60/partial_movie_files/BCC3DChiralAndConfinement/3269995579_931452297_4272008279.mp4'
+file 'file:/mnt/c/Users/edmon/downloads/spacetime/media/media/videos/scene2_bcc_3d_twist/1080p60/partial_movie_files/BCC3DChiralAndConfinement/509366670_3772117391_3139265476.mp4'
+file 'file:/mnt/c/Users/edmon/downloads/spacetime/media/media/videos/scene2_bcc_3d_twist/1080p60/partial_movie_files/BCC3DChiralAndConfinement/711707326_1729624684_1333362001.mp4'
+file 'file:/mnt/c/Users/edmon/downloads/spacetime/media/media/videos/scene2_bcc_3d_twist/1080p60/partial_movie_files/BCC3DChiralAndConfinement/3401898955_2588488558_4225702157.mp4'
+file 'file:/mnt/c/Users/edmon/downloads/spacetime/media/media/videos/scene2_bcc_3d_twist/1080p60/partial_movie_files/BCC3DChiralAndConfinement/2391384512_27834750_1279437920.mp4'
+file 'file:/mnt/c/Users/edmon/downloads/spacetime/media/media/videos/scene2_bcc_3d_twist/1080p60/partial_movie_files/BCC3DChiralAndConfinement/502114201_2109205107_2865965864.mp4'
+file 'file:/mnt/c/Users/edmon/downloads/spacetime/media/media/videos/scene2_bcc_3d_twist/1080p60/partial_movie_files/BCC3DChiralAndConfinement/2886122335_707576612_430535411.mp4'

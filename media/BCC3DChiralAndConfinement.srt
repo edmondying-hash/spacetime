@@ -1,0 +1,11 @@
+1
+00:00:00,000 --> 00:00:02,800
+Two zero-knob derivations from an 8-diagonal 3D Body-Centered Cubic spacetime crystal.
+
+2
+00:00:02,800 --> 00:00:05,800
+First: 192 of 512 three-hop walks form non-planar chiral twists—an exact 3/8 ratio predicting the cosmic baryon asymmetry eta = 5.90e-10.
+
+3
+00:00:05,800 --> 00:00:09,000
+Second: 4-link SU(2) rhombus plaquettes lock into confinement with an emergent 0++ glueball mass gap of 1306 MeV.
