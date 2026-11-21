@@ -3,7 +3,7 @@
 **Status:** WORK IN PROGRESS — draft scaffold for the theory document.
 **Author:** Edmond (with implementation support).
 **Companion artifacts:** `PREREGISTRATION.md` (locked protocol), `bcc_config.py` (knob registry),
-`bcc/bcc_glueball_scaling.json` + `bcc/cubic_control.json` (Target D/E results).
+`bcc/bcc_glueball_scaling.json` + `bcc/cubic_control.json` (Target F/G results).
 
 > The benchmark repository demonstrates *that* the network reproduces quantitative
 > physics across six domains. This document states *why*: it fixes the axioms, the
@@ -95,7 +95,7 @@ remaining knob class a derivation path. (Classification, not yet execution.)
 
 | ID | Knob class (examples in `bcc_config.py`) | Derivation path | Priority |
 | :--- | :--- | :--- | :--- |
-| D1 | Energy dictionary: `TICK_TO_MEV = 5.0`, `link_weight_mev = 198` | Fix $\kappa$ by one measured scale — the BCC string tension from the Target D ensemble (the lattice-QCD analogue of fixing $a$ by $\sqrt{\sigma}$). Then every MeV number in `bcc/` and `elements/` converts from ticks without independent tuning. | **High** — largest single knob-class collapse |
+| D1 | Energy dictionary: `TICK_TO_MEV = 5.0`, `link_weight_mev = 198` | Fix $\kappa$ by one measured scale — the BCC string tension from the Target F ensemble (the lattice-QCD analogue of fixing $a$ by $\sqrt{\sigma}$). Then every MeV number in `bcc/` and `elements/` converts from ticks without independent tuning. | **High** — largest single knob-class collapse |
 | D2 | `W_to_g00_map` ($d\tau/dt = \sqrt{1-W/C}$), `lensing_queue` | Derive the congestion→time-dilation map from queueing theory on the A1/A2 network: a loaded round-trip queue with service capacity $C$ delays arrivals by the M/G/1 mean-delay law; show the $\sqrt{1-W/C}$ form (or correct the map) follows from throughput at the $c$ ceiling. | **High** — this is the gravity axiom itself |
 | D3 | `QUARK_BARE_TICKS`, `baryon_bare_ticks`, `redraw_probs`, `meson_route_rule`, `meson_hyperfine` | Partially done by Target C (chiral Dirac gives light-quark bare ticks). Extend: derive all flavor bare ticks from chiral condensate structure on the BCC graph; derive routing rules from Steiner-tree optimality on the 8-diagonal graph. | Medium — large class, incremental |
 | D4 | `huygens_dt = 0.55` (+ `huygens_*` set) | Derive the wave step from the lattice dispersion relation of the 8-diagonal hopping kernel: the continuum group velocity of the lowest mode must equal the A1 ceiling $c$; solve for the leapfrog parameter instead of declaring it. | Medium |
@@ -114,12 +114,12 @@ single-scale core ($\kappa$ + A5 postulate) + relabeled data inputs.
   congestion propagation, conservation laws (charge, energy/workload, baryon
   number). *This is what turns the framework from "a set of simulations" into
   a theory with a dynamics.*
-- **F2 — 3D gauge sector vs 4D continuum.** (New, from Target D/E, Nov 21.)
+- **F2 — 3D gauge sector vs 4D continuum.** (New, from Target F/G, Nov 21.)
   The BCC gauge dynamics is a **3D SU(2)** gauge theory (spatial lattice,
   spatial plaquettes): $m_{0++}/\sqrt{\sigma} \approx 5.5$ at $L = 8..20$,
   ~55% *above* the 4D continuum value $3.55 \pm 0.15$. The original "18% below"
   claim was an under-thermalization artifact (35 thermalization sweeps).
-  **Target E (cubic-3D control, completed Nov 21) resolved the decision fork to
+  **Target G (cubic-3D control, completed Nov 21) resolved the decision fork to
   (i) LATTICE-UNIVERSAL:** the cubic 3D control gives the same plateau within
   $0.28\sigma$ ($\approx 4.5$–$5.3$ with large bootstrap errors vs. BCC
   $\approx 5.4$–$5.8$), so the $\sim 5.5$ ratio is a property of 3D SU(2) gauge
@@ -136,7 +136,7 @@ single-scale core ($\kappa$ + A5 postulate) + relabeled data inputs.
   Path: show $|\psi|^2$ commitment is the unique consistent assignment for
   lazy cone–fringe intersection (no-retrocausality + 50/50 marginals +
   frame-independent ordering constraints).
-- **F4 — Spatial vs temporal correlators.** Target D/B measure the $0^{++}$
+- **F4 — Spatial vs temporal correlators.** Target F/B measure the $0^{++}$
   decay along the embedding $z$ axis — a *spatial* correlation length, not an
   Euclidean-time one. In the rotationally invariant continuum limit the two
   coincide ($\xi = 1/m_{0++}$ in every direction); write the argument, and
@@ -155,6 +155,6 @@ Every quantitative claim is preregistered in `PREREGISTRATION.md` *before*
 execution, passed/failed against locked criteria in `run_all_benchmarks.py`,
 with `bcc_config.py` SHA-256-audited on every run. New targets (D, E, ...)
 must be added there first. Negative results are reported as negative results
-(see Target D's preregistered decision fork). The theory is advanced by
+(see Target F's preregistered decision fork). The theory is advanced by
 *deriving* knobs away (D1–D6) and *preregistering* new out-of-sample
 predictions — never by retuning.

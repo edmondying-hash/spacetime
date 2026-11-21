@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-TARGET E (CONTROL): Cubic-3D SU(2) reference for the 0++ glueball ratio
+TARGET G (CONTROL): Cubic-3D SU(2) reference for the 0++ glueball ratio
 (`bcc/bcc_cubic_control.py`).
 
-Question (preregistered, PREREGISTRATION.md item 7, Target E): Target D found
+Question (preregistered, PREREGISTRATION.md item 7, Target G): Target F found
 m_0++/sqrt(sigma) plateauing at ~5.5 on the BCC lattice, ~55% ABOVE the 4D
 continuum SU(2) value (3.55 +- 0.15). The BCC gauge sector is a 3D SU(2) gauge
 theory (spatial lattice, spatial plaquettes), so the correct comparison may be
@@ -13,7 +13,7 @@ the 3D continuum ratio. This control runs the SAME protocol on the standard
   * 3 link directions, 12 plaquettes per site, beta = 2.15 (same Wilson
     coupling convention as the BCC code).
   * Parallel single-proposal Metropolis sweeps, step 0.45 (identical kernel
-    family to Target D).
+    family to Target F).
   * L in {8, 12, 16, 20}, 2000 therm + 3000 meas, seed = 3000 + L.
   * APE alpha = 0.55 x 3, 2x2 blocked plaquette 0++ operator, connected
     C(dt) at dt = 0..5, m = -ln(C(1)/C(0)), bootstrap B = 2000.
@@ -81,7 +81,7 @@ class CubicPlaquetteMonteCarlo(BCCPlaquetteMonteCarlo):
 
 
 def vectorized_sweep_cubic(mc: CubicPlaquetteMonteCarlo, links: np.ndarray, beta: float) -> None:
-    """One parallel Metropolis sweep (3 directions); same quaternion acceptance as Target D."""
+    """One parallel Metropolis sweep (3 directions); same quaternion acceptance as Target F."""
     L = mc.L
     for mu in range(3):
         staple = mc._staple_sum_su2(links, mu)
@@ -207,7 +207,7 @@ def run_one_lattice(L: int, seed: int) -> Dict[str, Any]:
 
 def main() -> None:
     print("=" * 92)
-    print("TARGET E [CONTROL]: Cubic-3D SU(2) Reference for m_0++/sqrt(sigma)")
+    print("TARGET G [CONTROL]: Cubic-3D SU(2) Reference for m_0++/sqrt(sigma)")
     print(f"beta = {BETA}, {THERM_SWEEPS} therm + {MEAS_SWEEPS} meas, APE {APE_ALPHA} x {APE_STEPS}, "
           f"bootstrap B = {B_BOOTSTRAP}")
     print("=" * 92)
@@ -222,7 +222,7 @@ def main() -> None:
         )
         print(f"        C(dt): " + "  ".join(f"C({d}) = {c:.3e}" for d, c in enumerate(res["C"])))
 
-    # ---- Comparison against Target D (BCC) ----------------------------------
+    # ---- Comparison against Target F (BCC) ----------------------------------
     l20 = rows[-1]
     l8 = rows[0]
     delta, verdict = None, None
@@ -240,17 +240,17 @@ def main() -> None:
             else "(ii) BCC-SPECIFIC (diagonal geometry shifts the ratio; theory must account for it)"
         )
         print("-" * 92)
-        print(f"  Target D (BCC)  L=20: ratio = {td20['ratio']:.3f} +- {td20['ratio_err']:.3f}")
-        print(f"  Target E (cubic) L=20: ratio = {l20['ratio']:.3f} +- {l20['ratio_err']:.3f}")
+        print(f"  Target F (BCC)  L=20: ratio = {td20['ratio']:.3f} +- {td20['ratio_err']:.3f}")
+        print(f"  Target G (cubic) L=20: ratio = {l20['ratio']:.3f} +- {l20['ratio_err']:.3f}")
         print(f"  delta = {delta:+.3f}  (combined err {comb_err:.3f}, {sigma:.2f} sigma)")
         print(f"  Preregistered verdict: {verdict}")
     else:
         print("-" * 92)
-        print("  (glueball_scaling.json not found; Target D comparison deferred)")
+        print("  (glueball_scaling.json not found; Target F comparison deferred)")
 
     out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cubic_control.json")
     with open(out, "w") as fh:
-        json.dump({"protocol": "Target E, PREREGISTRATION.md item 7", "beta": BETA,
+        json.dump({"protocol": "Target G, PREREGISTRATION.md item 7", "beta": BETA,
                    "rows": rows, "delta_vs_BCC_L20": delta, "verdict": verdict}, fh, indent=2)
     print(f"  Artifact: {out}")
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-TARGET D (ZERO-KNOB): Lattice-Size Scaling of the 0++ Glueball Ratio (`bcc/bcc_glueball_scaling.py`).
+TARGET F (ZERO-KNOB): Lattice-Size Scaling of the 0++ Glueball Ratio (`bcc/bcc_glueball_scaling.py`).
 
-Preregistered protocol (see PREREGISTRATION.md, item 6, Target D):
+Preregistered protocol (see PREREGISTRATION.md, item 6, Target F):
   * Genuine SU(2) Metropolis Monte Carlo on the 3D BCC (8-diagonal) lattice at
     beta = 2.15 (identical gauge action & step parameter to Target B).
   * Parallel single-proposal sweeps (valid Metropolis kernel; equilibrium
@@ -40,7 +40,7 @@ import numpy as np
 
 from bcc_confinement_wilson import BCCPlaquetteMonteCarlo, _ape_smear_su2
 
-# ---- Preregistered protocol constants (Target D, locked) -------------------
+# ---- Preregistered protocol constants (Target F, locked) -------------------
 BETA = 2.15
 LATTICES: List[int] = [8, 12, 16, 20]
 THERM_SWEEPS = 2000
@@ -190,7 +190,7 @@ def run_one_lattice(L: int, seed: int) -> Dict[str, Any]:
 
 def main() -> None:
     print("=" * 92)
-    print("TARGET D [ZERO-KNOB]: Lattice-Size Scaling of the 0++ Glueball Ratio m_0++/sqrt(sigma)")
+    print("TARGET F [ZERO-KNOB]: Lattice-Size Scaling of the 0++ Glueball Ratio m_0++/sqrt(sigma)")
     print(f"SU(2) BCC MC, beta = {BETA}, parallel sweeps, APE {APE_ALPHA} x {APE_STEPS}, "
           f"{THERM_SWEEPS} therm + {MEAS_SWEEPS} meas, bootstrap B = {B_BOOTSTRAP}")
     print("=" * 92)
@@ -235,7 +235,7 @@ def main() -> None:
     with open(out, "w") as fh:
         json.dump(
             {
-                "protocol": "Target D, PREREGISTRATION.md item 6",
+                "protocol": "Target F, PREREGISTRATION.md item 6",
                 "beta": BETA,
                 "rows": rows,
                 "pass_a": pass_a,
