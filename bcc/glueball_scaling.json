@@ -1,0 +1,140 @@
+{
+  "protocol": "Target D, PREREGISTRATION.md item 6",
+  "beta": 2.15,
+  "rows": [
+    {
+      "L": 8,
+      "seed": 2034,
+      "beta": 2.15,
+      "therm_sweeps": 2000,
+      "meas_sweeps": 3000,
+      "ape": "alpha=0.55 x 3 steps",
+      "wall_s": 33.41,
+      "C": [
+        0.00065218,
+        2.086e-05,
+        5.88e-06,
+        2.37e-06,
+        -3e-06,
+        2.37e-06
+      ],
+      "W": {
+        "1x1": 0.53292,
+        "2x1": 0.30591,
+        "1x2": 0.30518,
+        "2x2": 0.1162
+      },
+      "m_lat": 3.4425,
+      "m_lat_err": 0.216,
+      "m_fit_exploratory": 0.5125,
+      "m_fit_exploratory_err": 0.3098,
+      "chi_2x2": 0.4105,
+      "chi_2x2_err": 0.0014,
+      "sqrt_chi": 0.6407,
+      "ratio": 5.373,
+      "ratio_err": 0.337
+    },
+    {
+      "L": 12,
+      "seed": 2038,
+      "beta": 2.15,
+      "therm_sweeps": 2000,
+      "meas_sweeps": 3000,
+      "ape": "alpha=0.55 x 3 steps",
+      "wall_s": 58.67,
+      "C": [
+        0.0002908,
+        8.43e-06,
+        1.82e-06,
+        1.52e-06,
+        2.17e-06,
+        1.79e-06
+      ],
+      "W": {
+        "1x1": 0.53307,
+        "2x1": 0.30545,
+        "1x2": 0.30461,
+        "2x2": 0.11446
+      },
+      "m_lat": 3.5406,
+      "m_lat_err": 0.1865,
+      "m_fit_exploratory": 0.2927,
+      "m_fit_exploratory_err": 0.2428,
+      "chi_2x2": 0.4219,
+      "chi_2x2_err": 0.0008,
+      "sqrt_chi": 0.6495,
+      "ratio": 5.451,
+      "ratio_err": 0.287
+    },
+    {
+      "L": 16,
+      "seed": 2042,
+      "beta": 2.15,
+      "therm_sweeps": 2000,
+      "meas_sweeps": 3000,
+      "ape": "alpha=0.55 x 3 steps",
+      "wall_s": 116.68,
+      "C": [
+        0.00016274,
+        3.84e-06,
+        -2.9e-07,
+        1.24e-06,
+        -7.3e-07,
+        5e-08
+      ],
+      "W": {
+        "1x1": 0.53603,
+        "2x1": 0.30972,
+        "1x2": 0.30886,
+        "2x2": 0.11823
+      },
+      "m_lat": 3.7467,
+      "m_lat_err": 0.1998,
+      "m_fit_exploratory": 1.0826,
+      "m_fit_exploratory_err": 0.3527,
+      "chi_2x2": 0.4118,
+      "chi_2x2_err": 0.0005,
+      "sqrt_chi": 0.6417,
+      "ratio": 5.839,
+      "ratio_err": 0.311
+    },
+    {
+      "L": 20,
+      "seed": 2046,
+      "beta": 2.15,
+      "therm_sweeps": 2000,
+      "meas_sweeps": 3000,
+      "ape": "alpha=0.55 x 3 steps",
+      "wall_s": 212.45,
+      "C": [
+        0.000104,
+        2.77e-06,
+        4.5e-07,
+        -1e-08,
+        -2.2e-07,
+        -5.4e-07
+      ],
+      "W": {
+        "1x1": 0.53384,
+        "2x1": 0.30673,
+        "1x2": 0.3058,
+        "2x2": 0.11534
+      },
+      "m_lat": 3.6251,
+      "m_lat_err": 0.1617,
+      "m_fit_exploratory": null,
+      "m_fit_exploratory_err": 0.5569,
+      "chi_2x2": 0.4209,
+      "chi_2x2_err": 0.0004,
+      "sqrt_chi": 0.6488,
+      "ratio": 5.588,
+      "ratio_err": 0.249
+    }
+  ],
+  "pass_a": true,
+  "pass_b": false,
+  "continuum_target": [
+    3.55,
+    0.15
+  ]
+}
