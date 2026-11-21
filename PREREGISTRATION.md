@@ -30,7 +30,7 @@ To transition this computational model from an exploratory hypothesis into a fal
 
 ## 3. Preregistered Pass/Fail Acceptance Criteria (`run_all_benchmarks.py`)
 
-Every commit to the repository must pass all 11 quantitative assertions without modifying `bcc_config.py`:
+Every commit to the repository must pass all 13 quantitative assertions without modifying `bcc_config.py`:
 
 1. **Microscopic QCD, Confinement & Emergent Glueball Gap (`bcc/`):**
    - Nucleon (`uud`) mass within `927.3 ± 5.0 MeV` (`~4.66` average Steiner links).

@@ -37,6 +37,8 @@ def run_script_suite() -> List[Tuple[str, bool, float, str]]:
         "bcc/bcc_virtual_carriers.py",
         "bcc/bcc_dual_pascal_born.py",
         "bcc/bcc_dirac4_spinor.py",
+        "bcc/bcc_chiral_dirac.py",
+        "bcc/bcc_generation_topology.py",
         "bcc/bcc_orbital_sim.py",
         "serverside/lazy_pascal_handshake.py",
         "serverside/entangled_bell_server.py",
@@ -85,6 +87,7 @@ def run_preregistered_assertions() -> List[Tuple[str, bool, str]]:
     from bcc_unified_engine import BCCUnifiedEngine
     from bcc_confinement_wilson import BCCPlaquetteMonteCarlo, measure_genuine_glueball_gap
     from bcc_chiral_dirac import evaluate_chiral_condensate_and_bare_ticks
+    from bcc_generation_topology import enumerate_bcc_walk_invariants
     from lazy_pascal_handshake import LazyPascalServer
     from bcc_sr_emergence import BCCSREmergenceSim
     from bcc_gr_emergence import BCCGREmergenceSim
@@ -156,6 +159,10 @@ def run_preregistered_assertions() -> List[Tuple[str, bool, str]]:
 
     tc = evaluate_chiral_condensate_and_bare_ticks(lattice_size=4, beta=2.05, seed=2026)
     checks.append(("12. [Target C] Zero-Knob Chiral Gap -> b_l", tc["near_zero_modes_conf"] > 0 and tc["rel_err_pct"] < 1.0, f"modes={tc['near_zero_modes_conf']}, b_l={tc['b_l_derived']} ({tc['rel_err_pct']}% err)"))
+
+    td = enumerate_bcc_walk_invariants()
+    gen_vals = tuple(r["t_derived"] for r in td["generations"])
+    checks.append(("13. [Target D] Zero-Knob Gen Ticks (18, 44, 82)", gen_vals == (18.0, 44.0, 82.0) and td["non_backtracking_rhombus_walks"] == 96, f"ticks={gen_vals}, loops={td['non_backtracking_rhombus_walks']} (0.00% err)"))
 
     return checks
 

@@ -14,7 +14,7 @@ These programs are toy models built on BCC lattice logic. Matches to measured va
 
 ## Quick Start: Preregistered CI Suite, Master Report & 20-Panel Dashboard
 
-From the root `spacetime/` directory, verify all 26 scripts and 11 preregistered physics assertions against the locked `bcc_config.py` manifest, export the unified JSON report, and render the 20-panel (`5x4`) sectioned dashboard (`master_dashboard.png`):
+From the root `spacetime/` directory, verify all 28 scripts and 13 preregistered physics assertions against the locked `bcc_config.py` manifest, export the unified JSON report, and render the 20-panel (`5x4`) sectioned dashboard (`master_dashboard.png`):
 
 ```bash
 python3 run_all_benchmarks.py
@@ -32,9 +32,9 @@ python3 plot_master_dashboard.py
 ```text
 spacetime/
 ├── README.md                        # Top-level unified architecture overview
-├── PREREGISTRATION.md               # Locked lattice conventions, 39 declared knobs & 11 CI assertions
+├── PREREGISTRATION.md               # Locked lattice conventions, 39 declared knobs & 13 CI assertions
 ├── bcc_config.py                    # Single source of truth (CODATA constants, HOP="lP", knob registry)
-├── run_all_benchmarks.py            # Automated CI test suite (26 scripts + 11 preregistered assertions)
+├── run_all_benchmarks.py            # Automated CI test suite (28 scripts + 13 preregistered assertions)
 ├── export_master_report.py          # Unified JSON exporter across all 6 subdirectories
 ├── plot_master_dashboard.py         # 20-panel (5x4) sectioned dashboard generator (master_dashboard.png)
 ├── bcc/                             # 1. Microscopic 3D BCC Lattice, QCD, Confinement & Spin-1/2
