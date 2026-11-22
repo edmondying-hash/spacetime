@@ -62,7 +62,13 @@ def run_script_suite() -> List[Tuple[str, bool, float, str]]:
         "elements/bcc_relativistic_mercury.py",
         "elements/bcc_multi_electron_atoms.py",
         "elements/bcc_molecular_chemistry.py",
+        "bcc/bcc_tick_energy_audit.py",
+        "gr/bcc_congestion_queueing.py",
     ]
+    # Target H is a heavy verification run (exact solve + full-grid residual +
+    # 12000-tick transient + 6 Fermat rays); it gets a longer budget than the
+    # 90 s default (fast on sparky, ~4 min on the local box).
+    heavy_budget = {"gr/bcc_congestion_queueing.py": 600}
 
     results: List[Tuple[str, bool, float, str]] = []
     for rel_path in candidate_scripts:
@@ -75,7 +81,7 @@ def run_script_suite() -> List[Tuple[str, bool, float, str]]:
             cwd=str(full_path.parent),
             capture_output=True,
             text=True,
-            timeout=90,
+            timeout=heavy_budget.get(rel_path, 90),
         )
         dt = time.perf_counter() - t0
         ok = proc.returncode == 0
@@ -163,6 +169,29 @@ def run_preregistered_assertions() -> List[Tuple[str, bool, str]]:
     td = enumerate_bcc_walk_invariants()
     gen_vals = tuple(r["t_derived"] for r in td["generations"])
     checks.append(("13. [Target D] Zero-Knob Gen Ticks (18, 44, 82)", gen_vals == (18.0, 44.0, 82.0) and td["non_backtracking_rhombus_walks"] == 96, f"ticks={gen_vals}, loops={td['non_backtracking_rhombus_walks']} (0.00% err)"))
+
+    # 7. Target H (D2): genuine congestion-queueing gravity — verify the
+    # preregistered criteria from the artifact written by the script suite above.
+    import json as _json
+    th = _json.loads((ROOT / "gr" / "congestion_queueing.json").read_text())
+    th1 = th["H1"]
+    th3 = {r["map"][0]: r for r in th["H3"]}
+    th4_ratio = next(r for r in th["H4"] if r["map"] == "A/B excess ratio")
+    checks.append(("14. [Target H] Congestion-Queueing Gravity (H1/H3/H4)",
+                   th1["fit_within_2pct"] and th1["symmetry_reduction_full_grid_residual"] < 1e-10
+                   and th3["B"]["pass_5pct"] and not th3["A"]["pass_5pct"]
+                   and th4_ratio["ratio_in_1.8_2.2"],
+                   f"A/C={th1['A_over_C']:.3f}, r_s={th1['r_s']:.3f}; H3: map B {th3['B']['worst_rel_err']*100:.2f}% / map A {th3['A']['worst_rel_err']*100:.1f}%; H4 A/B={th4_ratio['ratios']}"))
+
+    # 8. D1 audit: single-scale energy dictionary (mesons one-kappa; baryon
+    # sector factor-5 inconsistency + only the nucleon fits).
+    da = _json.loads((ROOT / "bcc" / "tick_energy_audit.json").read_text())
+    mes_ok = all(abs(r["diff_pct"]) <= 2.0 for r in da["mesons"])
+    nuc = next(r for r in da["baryons"] if r["name"] == "N")
+    other_bad = [r for r in da["baryons"] if r["name"] != "N" and abs(r["diff_pct"]) > 5.0]
+    checks.append(("15. [D1] Single-Scale Energy Dictionary",
+                   mes_ok and abs(nuc["diff_pct"]) <= 2.0 and len(other_bad) == 7,
+                   f"mesons max {max(abs(r['diff_pct']) for r in da['mesons']):.2f}% (kappa=5.0); N {nuc['diff_pct']}%; {len(other_bad)}/7 other baryons >5% off (implicit kappa=1.0)"))
 
     return checks
 
