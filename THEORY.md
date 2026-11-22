@@ -96,7 +96,7 @@ remaining knob class a derivation path. (Classification, not yet execution.)
 | ID | Knob class (examples in `bcc_config.py`) | Derivation path | Priority |
 | :--- | :--- | :--- | :--- |
 | D1 | Energy dictionary: `TICK_TO_MEV = 5.0`, `link_weight_mev = 198` | Fix $\kappa$ by one measured scale — the BCC string tension from the Target F ensemble (the lattice-QCD analogue of fixing $a$ by $\sqrt{\sigma}$). Then every MeV number in `bcc/` and `elements/` converts from ticks without independent tuning. | **High** — largest single knob-class collapse |
-| D2 | `W_to_g00_map` ($d\tau/dt = \sqrt{1-W/C}$), `lensing_queue` | Derive the congestion→time-dilation map from queueing theory on the A1/A2 network: a loaded round-trip queue with service capacity $C$ delays arrivals by the M/G/1 mean-delay law; show the $\sqrt{1-W/C}$ form (or correct the map) follows from throughput at the $c$ ceiling. | **High** — this is the gravity axiom itself |
+| D2 | `W_to_g00_map` ($d\tau/dt = \sqrt{1-W/C}$), `lensing_queue` | **Done (Target H, `gr/bcc_congestion_queueing.py`, Nov 21).** The congestion profile is genuine (H1: local queue diffusion + point source, exact steady state $A(1/r-1/R)$ to 0.34%, $r_s = 3.69$ from $W=C$). The $\sqrt{1-W/C}$ map (declared OD2) reproduces the Schwarzschild time dilation within $1.47\%$ (H3); the standard M/M/1 queue map $1/(1-\rho)$ gives the Newtonian linear form and fails the bound (28% at $2r_s$) — so the $\sqrt{}$ map is the queue map *consistent with* GR, not a consequence of M/M/1 theory; its $\sim 1.5\%$ residual is the open-boundary term $\mathcal{O}(r_s/R)$. H4 (queue-potential integral): the two maps differ by exactly the derived factor 2 ($\Delta_A/\Delta_B = 2.012/2.005/2.002$ for $b = 16/24/32\, r_s$): M/M/1 has the GR effective-index depth ($n-1 \approx \rho \approx r_s/r$), the $\sqrt{}$ map the Newtonian half-depth. Open sub-question (sharpened F4): relating the two maps (temporal dilation vs. index/deflection depth) — the factor 2 that GR gets from $g_{ij}$ must come from the queue–geometry relation in the network. | **Closed as a derivation target; residual question merged into F4** |
 | D3 | `QUARK_BARE_TICKS`, `baryon_bare_ticks`, `redraw_probs`, `meson_route_rule`, `meson_hyperfine` | Partially done by Target C (chiral Dirac gives light-quark bare ticks). Extend: derive all flavor bare ticks from chiral condensate structure on the BCC graph; derive routing rules from Steiner-tree optimality on the 8-diagonal graph. | Medium — large class, incremental |
 | D4 | `huygens_dt = 0.55` (+ `huygens_*` set) | Derive the wave step from the lattice dispersion relation of the 8-diagonal hopping kernel: the continuum group velocity of the lowest mode must equal the A1 ceiling $c$; solve for the leapfrog parameter instead of declaring it. | Medium |
 | D5 | `cmb_phase_shift = 0.2709`, `void_expand_thresh = 20.0`, `h_vac_rate` | Vacuum = queue below threshold: derive `void_expand_thresh` from the idle-queue noise of A2 (candidate: $C/\kappa$-relative scale — check the 100/5 relation). CMB phase shift from the D4 wave speed (cascade). | Medium |
@@ -141,6 +141,14 @@ single-scale core ($\kappa$ + A5 postulate) + relabeled data inputs.
   Euclidean-time one. In the rotationally invariant continuum limit the two
   coincide ($\xi = 1/m_{0++}$ in every direction); write the argument, and
   (optionally) verify with a second-direction correlator as a rotation check.
+  *(Gravity counterpart, from Target H: the network's two queue maps give the
+  two GR depth measures — M/M/1 $n-1 \approx \rho$ (the GR effective index, i.e.
+  the full Einstein deflection in the asymptotic lens regime) and the declared
+  $\sqrt{}$ map $n-1 \approx \rho/2$ (Newtonian half-depth, but the exact
+  Schwarzschild time dilation). The factor 2 that GR attributes to the spatial
+  metric $g_{ij}$ must be derived from the queue–geometry relation — the
+  congestion→spatial-metric map — in the network. This is now a quantified
+  open question, not a hand wave.)*
 - **F5 — Continuum limit.** A scaling/renormalization statement for the
   BCC network: as the lattice is refined (or as one moves from the Planck
   scale to macroscopic scales), why do continuum physics and the client/server
