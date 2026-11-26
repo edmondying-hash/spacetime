@@ -63,6 +63,7 @@ def run_script_suite() -> List[Tuple[str, bool, float, str]]:
         "elements/bcc_multi_electron_atoms.py",
         "elements/bcc_molecular_chemistry.py",
         "bcc/bcc_tick_energy_audit.py",
+        "bcc/bcc_baryon_rederivation.py",
         "gr/bcc_congestion_queueing.py",
     ]
     # Target H is a heavy verification run (exact solve + full-grid residual +
@@ -207,6 +208,22 @@ def run_preregistered_assertions() -> List[Tuple[str, bool, str]]:
                    f"BCC L=40 {bcc40['ratio']:.3f}+/-{bcc40['ratio_err']:.3f} (stable vs F L20); "
                    f"cubic L=40 {cub40['ratio']:.3f}+/-{cub40['ratio_err']:.3f} (delta {delta40:+.3f}, BCC-specific); "
                    f"recorded honest negatives: I(ii) tension drift, I(iii) miscalibrated criterion"))
+
+    # 10. Target K (D3): baryon re-derivation on the single meson scale —
+    # verify the committed artifact reproduces the recorded outcome:
+    # spin-as-routing-topology works; the full spectrum fails on both
+    # branches (declared theory failure, residual = F1 dynamics).
+    bk = _json.loads((ROOT / "bcc" / "baryon_rederivation.json").read_text())
+    k_rows = {r["name"]: r for r in bk["rows"]}
+    dn_v1 = bk["delta_minus_N"]["v1_mev"]
+    ok_k = (bk["pass_i_spin_mechanism_v1"] and 200.0 <= dn_v1 <= 350.0
+            and not bk["pass_ii_full_spectrum_v1"] and not bk["pass_ii_full_spectrum_v2"]
+            and abs(k_rows["SigmaStar"]["v2_diff_pct"]) < 1.0)
+    checks.append(("17. [Target K/D3] Spin-as-routing works; tick structure fails (declared)",
+                   ok_k,
+                   f"v1 Δ-N {dn_v1:.1f} MeV (spin mechanism PASS); v2 Σ* {k_rows['SigmaStar']['v2_diff_pct']:+.2f}% "
+                   f"(congestion-time flavor); full spectrum FAIL both branches → F1 "
+                   f"(base deficit + attribution + diquark-spin)"))
 
     return checks
 

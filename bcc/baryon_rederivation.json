@@ -1,0 +1,136 @@
+{
+  "target": "K",
+  "script": "bcc/bcc_baryon_rederivation.py",
+  "protocol": {
+    "kappa": 5.0,
+    "b_l": 15.5563,
+    "b_s": 24.25,
+    "w_hop": 27.0,
+    "redraw": {
+      "l": 0.72,
+      "s": 0.4
+    },
+    "seed": 42,
+    "cycles": 3000,
+    "size": 8,
+    "v1": "M = kappa*(B + w_hop*L_J); L_J: 3t Steiner (J=3/2) / 2t diquark (J=1/2)",
+    "v2": "M = kappa*(B + w_hop*(L_J + sum_f (1-p_f)/p_f * L_J/3)) [M/M/1 congestion time]"
+  },
+  "rows": [
+    {
+      "name": "N",
+      "flavor": "lll",
+      "J": "1/2",
+      "L_J": 2.912,
+      "B_ticks": 46.67,
+      "congestion_ticks": 30.58,
+      "v1_mev": 626.5,
+      "v2_mev": 779.3,
+      "pdg_mev": 938.9,
+      "v1_diff_pct": -33.28,
+      "v2_diff_pct": -16.99
+    },
+    {
+      "name": "Delta",
+      "flavor": "lll",
+      "J": "3/2",
+      "L_J": 4.6557,
+      "B_ticks": 46.67,
+      "congestion_ticks": 48.88,
+      "v1_mev": 861.9,
+      "v2_mev": 1106.3,
+      "pdg_mev": 1232.0,
+      "v1_diff_pct": -30.04,
+      "v2_diff_pct": -10.2
+    },
+    {
+      "name": "Lambda",
+      "flavor": "lls",
+      "J": "1/2",
+      "L_J": 2.98,
+      "B_ticks": 55.36,
+      "congestion_ticks": 61.09,
+      "v1_mev": 679.1,
+      "v2_mev": 984.6,
+      "pdg_mev": 1116.0,
+      "v1_diff_pct": -39.15,
+      "v2_diff_pct": -11.78
+    },
+    {
+      "name": "Sigma",
+      "flavor": "lls",
+      "J": "1/2",
+      "L_J": 2.98,
+      "B_ticks": 55.36,
+      "congestion_ticks": 61.09,
+      "v1_mev": 679.1,
+      "v2_mev": 984.6,
+      "pdg_mev": 1189.0,
+      "v1_diff_pct": -42.88,
+      "v2_diff_pct": -17.19
+    },
+    {
+      "name": "Xi",
+      "flavor": "lss",
+      "J": "1/2",
+      "L_J": 2.98,
+      "B_ticks": 64.06,
+      "congestion_ticks": 90.89,
+      "v1_mev": 722.6,
+      "v2_mev": 1177.0,
+      "pdg_mev": 1315.0,
+      "v1_diff_pct": -45.05,
+      "v2_diff_pct": -10.49
+    },
+    {
+      "name": "SigmaStar",
+      "flavor": "lls",
+      "J": "3/2",
+      "L_J": 4.648,
+      "B_ticks": 55.36,
+      "congestion_ticks": 95.28,
+      "v1_mev": 904.3,
+      "v2_mev": 1380.7,
+      "pdg_mev": 1385.0,
+      "v1_diff_pct": -34.71,
+      "v2_diff_pct": -0.31
+    },
+    {
+      "name": "XiStar",
+      "flavor": "lss",
+      "J": "3/2",
+      "L_J": 4.624,
+      "B_ticks": 64.06,
+      "congestion_ticks": 141.03,
+      "v1_mev": 944.5,
+      "v2_mev": 1649.7,
+      "pdg_mev": 1530.0,
+      "v1_diff_pct": -38.27,
+      "v2_diff_pct": 7.82
+    },
+    {
+      "name": "Omega",
+      "flavor": "sss",
+      "J": "3/2",
+      "L_J": 4.652,
+      "B_ticks": 72.75,
+      "congestion_ticks": 188.41,
+      "v1_mev": 991.8,
+      "v2_mev": 1933.8,
+      "pdg_mev": 1672.0,
+      "v1_diff_pct": -40.68,
+      "v2_diff_pct": 15.66
+    }
+  ],
+  "delta_minus_N": {
+    "v1_mev": 235.4,
+    "v2_mev": 327.0,
+    "pdg_mev": 293.1
+  },
+  "pass_i_spin_mechanism_v1": true,
+  "pass_ii_full_spectrum_v1": false,
+  "pass_ii_full_spectrum_v2": false,
+  "shortfall_decomposition": {
+    "note": "v1 under-scales all baryons (base deficit) with the deficit growing with strangeness; v2 (congestion time) lifts the strange baryons by the D2 queue-theory per-s increment. Any residual base deficit (light J=1/2 baryons) is the sustained-confinement-workload term \u2014 declared open under F1 dynamics / the D1 anchor, NOT fixed ad hoc."
+  }
+}
