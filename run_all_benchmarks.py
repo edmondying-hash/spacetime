@@ -193,6 +193,21 @@ def run_preregistered_assertions() -> List[Tuple[str, bool, str]]:
                    mes_ok and abs(nuc["diff_pct"]) <= 2.0 and len(other_bad) == 7,
                    f"mesons max {max(abs(r['diff_pct']) for r in da['mesons']):.2f}% (kappa=5.0); N {nuc['diff_pct']}%; {len(other_bad)}/7 other baryons >5% off (implicit kappa=1.0)"))
 
+    # 9. Targets I/J: long-ensemble artifacts (ED box) — verify the committed
+    # preregistered outcomes: BCC ratio L-stable (~5.8), cubic refinement
+    # error-shrunk, and the recorded BCC-specific geometry gap.
+    li = _json.loads((ROOT / "bcc" / "long_ensemble_bcc.json").read_text())
+    lj = _json.loads((ROOT / "bcc" / "long_ensemble_cubic.json").read_text())
+    bcc40 = li["rows"][-1]
+    cub40 = lj["rows"][-1]
+    delta40 = cub40["ratio"] - bcc40["ratio"]
+    checks.append(("16. [Targets I/J] BCC 3D ratio L-stable & geometry-specific",
+                   li["pass_i_ratio_stability"] and lj["pass_ii_error_shrinkage"]
+                   and bcc40["ratio"] >= 5.5 and -1.2 <= delta40 <= -0.4,
+                   f"BCC L=40 {bcc40['ratio']:.3f}+/-{bcc40['ratio_err']:.3f} (stable vs F L20); "
+                   f"cubic L=40 {cub40['ratio']:.3f}+/-{cub40['ratio_err']:.3f} (delta {delta40:+.3f}, BCC-specific); "
+                   f"recorded honest negatives: I(ii) tension drift, I(iii) miscalibrated criterion"))
+
     return checks
 
 

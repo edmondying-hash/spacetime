@@ -114,24 +114,38 @@ single-scale core ($\kappa$ + A5 postulate) + relabeled data inputs.
   congestion propagation, conservation laws (charge, energy/workload, baryon
   number). *This is what turns the framework from "a set of simulations" into
   a theory with a dynamics.*
-- **F2 — 3D gauge sector vs 4D continuum.** (New, from Target F/G, Nov 21.)
+- **F2 — 3D gauge sector vs 4D continuum.** (Updated Nov 25 with Targets I/J.)
   The BCC gauge dynamics is a **3D SU(2)** gauge theory (spatial lattice,
-  spatial plaquettes): $m_{0++}/\sqrt{\sigma} \approx 5.5$ at $L = 8..20$,
-  ~55% *above* the 4D continuum value $3.55 \pm 0.15$. The original "18% below"
-  claim was an under-thermalization artifact (35 thermalization sweeps).
-  **Target G (cubic-3D control, completed Nov 21) resolved the decision fork to
-  (i) LATTICE-UNIVERSAL:** the cubic 3D control gives the same plateau within
-  $0.28\sigma$ ($\approx 4.5$–$5.3$ with large bootstrap errors vs. BCC
-  $\approx 5.4$–$5.8$), so the $\sim 5.5$ ratio is a property of 3D SU(2) gauge
-  dynamics, not BCC geometry; the paper's reference value must be the 3D
-  continuum ratio (a 3D lattice-QCD reference value is needed — literature
-  lookup or a continuum-extrapolated 3D computation). Open sub-questions: the
-  *scale* does depend on lattice ($\chi(2,2)$: cubic $\approx 0.71$ vs. BCC
-  $\approx 0.42$ at the same $\beta$), the cubic errors must be tightened
-  (declared refinement), and the theory must still state the gauge sector's
-  relation to 4D physics (the network's "time" is the tick, not a lattice
-  direction: this needs an argument, or the gauge sector must be extended to
-  a 4th lattice dimension).
+  spatial plaquettes). **BCC ratio:** $m_{0++}/\sqrt{\sigma} = 5.37/5.45/5.84/5.59$
+  at $L = 8/12/16/20$ (Target F) and $5.682 \pm 0.182 / 5.964 \pm 0.191 /$
+  $5.812 \pm 0.145$ at $L = 24/32/40$ (Target I, 5000-meas sweeps, verbatim F
+  kernel) — L-stable up to $L = 40$ (all within $0.60 \times$ combined error of
+  F's $L = 20$). The **3D continuum reference value on the BCC lattice is
+  $5.81 \pm 0.15$** ($L = 40$), ~64% *above* the 4D continuum value
+  $3.55 \pm 0.15$. The original "18% below" claim was an under-thermalization
+  artifact (35 thermalization sweeps).
+  **Target J (cubic refinement, Nov 25) overturned Target G's provisional
+  verdict:** with the cubic bootstrap error shrunk 4.6x ($0.95 \to 0.206$ at
+  $L = 40$), the cubic control gives $4.938 \pm 0.244 / 5.018 \pm 0.216 /$
+  $5.118 \pm 0.206$ at $L = 24/32/40$; $\Delta$(cubic $-$ BCC) $= -0.74 /$
+  $-0.95 / -0.69$, i.e. $2.4$–$3.3\sigma$ combined $\Rightarrow$ verdict
+  **(ii) BCC-SPECIFIC**: the 8-diagonal BCC geometry lifts the ratio by ~15%
+  relative to cubic. (Target G's $0.28\sigma$ $L = 20$ verdict was
+  under-resolved — its cubic errors were 4–9x too large.)
+  **Honest negatives (Target I):** (a) $\sqrt{\chi(2,2)}$ shows a small but
+  resolvable L-drift ($0.6420 \to 0.6437$, $L = 24 \to 40$, beyond the
+  $\sim 10^{-4}$ bootstrap errors) — the Wilson-loop tension is not strictly
+  L-stable at $\beta = 2.15$; (b) the exploratory slope-fit "estimator sanity"
+  criterion was miscalibrated at preregistration (Target F showed the same
+  divergence pre-run: the global-vacuum-mean subtraction makes the slope fit
+  not a valid $2\sigma$ cross-check); the genuine estimator consistency is the
+  F$\leftrightarrow$I cross-run agreement, which holds.
+  Open: *why* the 8-diagonal BCC geometry lifts the ratio (the BCC geometry is
+  an A1 axiom, so this is a prediction the theory must derive — a lattice
+  anisotropy of 3D gauge dynamics); a literature 3D reference value; and the
+  gauge sector's relation to 4D physics (the network's "time" is the tick, not
+  a lattice direction: this needs an argument, or the gauge sector must be
+  extended to a 4th lattice dimension).
 - **F3 — Born rule.** A5 is the remaining declared statistical postulate.
   Path: show $|\psi|^2$ commitment is the unique consistent assignment for
   lazy cone–fringe intersection (no-retrocausality + 50/50 marginals +

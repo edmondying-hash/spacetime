@@ -1,0 +1,142 @@
+{
+  "target": "I",
+  "script": "bcc/bcc_long_ensemble_bcc.py",
+  "protocol": {
+    "kernel": "Target F verbatim (bcc_glueball_scaling.run_one_lattice)",
+    "beta": 2.15,
+    "therm_sweeps": 2000,
+    "meas_sweeps": 5000,
+    "ape": "alpha=0.55 x 3 steps",
+    "seed_offset": 4000,
+    "bootstrap": 2000
+  },
+  "rows": [
+    {
+      "L": 24,
+      "seed": 4024,
+      "beta": 2.15,
+      "therm_sweeps": 2000,
+      "meas_sweeps": 5000,
+      "ape": "alpha=0.55 x 3 steps",
+      "wall_s": 1047.58,
+      "C": [
+        7.248e-05,
+        1.89e-06,
+        1e-08,
+        1.5e-07,
+        -2.7e-07,
+        1.1e-07
+      ],
+      "W": {
+        "1x1": 0.53614,
+        "2x1": 0.30993,
+        "1x2": 0.30904,
+        "2x2": 0.11831
+      },
+      "m_lat": 3.6474,
+      "m_lat_err": 0.1168,
+      "m_fit_exploratory": 0.3468,
+      "m_fit_exploratory_err": 0.3858,
+      "chi_2x2": 0.4121,
+      "chi_2x2_err": 0.0002,
+      "sqrt_chi": 0.642,
+      "ratio": 5.682,
+      "ratio_err": 0.182
+    },
+    {
+      "L": 32,
+      "seed": 4032,
+      "beta": 2.15,
+      "therm_sweeps": 2000,
+      "meas_sweeps": 5000,
+      "ape": "alpha=0.55 x 3 steps",
+      "wall_s": 2654.65,
+      "C": [
+        4.076e-05,
+        8.8e-07,
+        -0.0,
+        7e-08,
+        3e-08,
+        1.1e-07
+      ],
+      "W": {
+        "1x1": 0.53559,
+        "2x1": 0.3092,
+        "1x2": 0.30831,
+        "2x2": 0.11769
+      },
+      "m_lat": 3.8361,
+      "m_lat_err": 0.1226,
+      "m_fit_exploratory": 0.6384,
+      "m_fit_exploratory_err": 0.3116,
+      "chi_2x2": 0.4137,
+      "chi_2x2_err": 0.0001,
+      "sqrt_chi": 0.6432,
+      "ratio": 5.964,
+      "ratio_err": 0.191
+    },
+    {
+      "L": 40,
+      "seed": 4040,
+      "beta": 2.15,
+      "therm_sweeps": 2000,
+      "meas_sweeps": 5000,
+      "ape": "alpha=0.55 x 3 steps",
+      "wall_s": 5501.49,
+      "C": [
+        2.62e-05,
+        6.2e-07,
+        -1.4e-07,
+        2e-08,
+        -3e-08,
+        1e-07
+      ],
+      "W": {
+        "1x1": 0.53528,
+        "2x1": 0.30878,
+        "1x2": 0.30791,
+        "2x2": 0.11736
+      },
+      "m_lat": 3.7413,
+      "m_lat_err": 0.0937,
+      "m_fit_exploratory": 0.4683,
+      "m_fit_exploratory_err": 0.2196,
+      "chi_2x2": 0.4144,
+      "chi_2x2_err": 0.0001,
+      "sqrt_chi": 0.6437,
+      "ratio": 5.812,
+      "ratio_err": 0.145
+    }
+  ],
+  "d1_anchor": {
+    "sqrt_sigma_pdg_mev": 440.0,
+    "by_L": {
+      "24": {
+        "lattice_unit_mev": 685.358,
+        "m0pp_mev": 2499.8,
+        "m0pp_mev_err": 80.0
+      },
+      "32": {
+        "lattice_unit_mev": 684.08,
+        "m0pp_mev": 2624.2,
+        "m0pp_mev_err": 83.9
+      },
+      "40": {
+        "lattice_unit_mev": 683.548,
+        "m0pp_mev": 2557.4,
+        "m0pp_mev_err": 64.0
+      }
+    },
+    "f2_caveat": "Numerical kappa (MeV/tick) is NOT fixed by this target: it requires the tick<->link coarse-graining scale (THEORY.md F2). Deliverable here is sqrt(sigma) in lattice units at L = 24/32/40 and its finite-size stability."
+  },
+  "pass_i_ratio_stability": true,
+  "pass_i_detail": {
+    "L24": 0.152,
+    "L32": 0.599,
+    "L40": 0.389
+  },
+  "pass_ii_tension_stability": false,
+  "pass_iii_estimator_sanity": false,
+  "all_pass": false,
+  "total_wall_s": 9215.5
+}
